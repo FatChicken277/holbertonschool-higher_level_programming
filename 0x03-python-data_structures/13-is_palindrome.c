@@ -7,7 +7,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *aux1 = *head, *aux2 = *head;
-	int i = 0, j;
+	int i = 0, j, k;
 
 	if (!*head)
 		return (1);
@@ -20,15 +20,18 @@ int is_palindrome(listint_t **head)
 	if (i == 1)
 		return (1);
 
+	k = i - 2;
+
 	while (i < (i / 2))
 	{
 		aux2 = aux2->next;
 		aux1 = aux2;
-		for (j = 0; j < i - 2; j++)
+		for (j = 0; j < k; j++)
 			aux1 = aux1->next;
 		if (aux2->n != aux1->n)
 			return (0);
 		i++;
+		k = i - 2;
 	}
 	return (1);
 }
