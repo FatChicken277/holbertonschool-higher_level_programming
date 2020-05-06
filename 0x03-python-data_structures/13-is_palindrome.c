@@ -22,7 +22,7 @@ int is_palindrome(listint_t **head)
 
 	k = i - 2;
 
-	while (i < (i / 2))
+	for (i = 0; i < (i / 2); i++)
 	{
 		aux2 = aux2->next;
 		aux1 = aux2;
@@ -30,7 +30,6 @@ int is_palindrome(listint_t **head)
 			aux1 = aux1->next;
 		if (aux2->n != aux1->n)
 			return (0);
-		i++;
 		k = i - 2;
 	}
 	return (1);
