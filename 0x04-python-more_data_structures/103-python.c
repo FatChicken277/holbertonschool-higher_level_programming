@@ -13,10 +13,8 @@ void print_python_list(PyObject *p)
 
 	long int len;
 	int i;
-	PyObject *item, *tuple;
-
-	tuple = PyList_AsTuple(p);
-	len = PyTuple_Size(tuple);
+	const char *type;
+	len = ((PyVarObject *)p)->ob_size;
 	PyListObject *aux = (PyListObject *)p;
 
 	printf("[*] Python list info\n");
@@ -25,17 +23,10 @@ void print_python_list(PyObject *p)
 
 	for (i = 0; i < len; i++)
 	{
-		item = PyTuple_GetItem(tuple, i);
-		if (PyFloat_Check(item))
-			printf("Element %d: float\n", i);
-		if (PyTuple_Check(item))
-			printf("Element %d: tuple\n", i);
-		if (PyList_Check(item))
-			printf("Element %d: list\n", i);
-		if (PyLong_Check(item))
-			printf("Element %d: int\n", i);
-		if (PyUnicode_Check(item))
-			printf("Element %d: str\n", i);
+		type = aux->ob_item[i]->ob_type->tp_name;
+		printf("Element %d: %s\n", i, type);
+		if (strcmp(type, "bytes") == 0)
+			print_python_bytes(aux->ob_item[i]);
 	}
 }
 
@@ -43,7 +34,6 @@ void print_python_list(PyObject *p)
  * print_python_bytes - print info
  * @p: object
  */
-
 
 void print_python_bytes(PyObject *p)
 {
