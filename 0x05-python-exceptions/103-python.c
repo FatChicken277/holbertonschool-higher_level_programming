@@ -19,8 +19,6 @@ void print_python_list(PyObject *p)
 	len = ((PyVarObject *)p)->ob_size;
 	PyListObject *aux = (PyListObject *)p;
 
-	setbuf(stdout, NULL);
-
 	printf("[*] Python list info\n");
 	if (PyList_Check(p))
 	{
