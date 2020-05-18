@@ -34,6 +34,7 @@ void print_python_list(PyObject *p)
 				print_python_bytes(aux->ob_item[i]);
 			if (strcmp(type, "float") == 0)
 				print_python_float(aux->ob_item[i]);
+			fflush(stdout);
 		}
 	}
 	else
@@ -71,6 +72,7 @@ void print_python_bytes(PyObject *p)
 				printf("\n");
 			else
 				printf(" ");
+			fflush(stdout);
 		}
 	}
 	else
