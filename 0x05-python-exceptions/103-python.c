@@ -92,7 +92,7 @@ void print_python_float(PyObject *p)
 	{
 		faux = aux->ob_fval;
 		str = PyOS_double_to_string(faux, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
-		printf("  Value: %s\n", str);
+		printf("  value: %s\n", str);
 	}
 	else
 		printf("  [ERROR] Invalid Float Object\n");
