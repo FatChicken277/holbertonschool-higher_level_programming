@@ -81,15 +81,13 @@ void print_python_bytes(PyObject *p)
  */
 void print_python_float(PyObject *p)
 {
-	double faux;
 	char *str;
 	PyFloatObject *aux = (PyFloatObject *)p;
 
 	printf("[.] float object info\n");
 	if (PyFloat_Check(p))
 	{
-		faux = aux->ob_fval;
-		str = PyOS_double_to_string(faux, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
+		str = PyOS_double_to_string(aux->ob_fval, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
 		printf("  value: %s\n", str);
 	}
 	else
