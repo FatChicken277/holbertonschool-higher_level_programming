@@ -49,21 +49,13 @@ void print_python_list(PyObject *p)
 void print_python_bytes(PyObject *p)
 {
 	int size, i;
-	unsigned int j;
-	char *copy_arr;
 	PyBytesObject *aux = (PyBytesObject *)p;
 
 	printf("[.] bytes object info\n");
 	if (PyBytes_Check(p))
 	{
 		printf("  size: %ld\n", PyBytes_Size(p));
-		copy_arr = strdup(aux->ob_sval);
-		for (j = 0; j < strlen(copy_arr); j++)
-		{
-			if (copy_arr[j] < 0)
-				copy_arr[j] = '?';
-		}
-		printf("  trying string: %s\n", copy_arr);
+		printf("  trying string: %s\n", aux->ob_sval);
 
 		if (((PyVarObject *)p)->ob_size > 10)
 			size = 10;
