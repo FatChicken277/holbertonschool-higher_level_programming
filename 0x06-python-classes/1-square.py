@@ -13,14 +13,12 @@ This module creates an class called "Square" that defines a square.
 class Square:
     """Define a square.
 
-    Define a square by size and value.
+    Define a square by size.
 
     Attributes:
         __size: size of the square.
-        value: value of the square.
     """
-    __size = None
 
-    def __init__(self, value):
-        """Inits Square with a value."""
-        self.value = value
+    def __init__(self, size):
+        """Inits Square with a size."""
+        self.__size = size
