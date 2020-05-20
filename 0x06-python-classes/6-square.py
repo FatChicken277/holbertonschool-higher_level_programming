@@ -27,8 +27,8 @@ class Square:
             size {int} -- size (default: {0})
             position {tuple} -- position (default: {(0, 0)})
         """        
-            self.__size = size
-            self.__position = position
+        self.__size = size
+        self.__position = position
 
     @property
     def size(self):
