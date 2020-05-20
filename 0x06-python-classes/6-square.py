@@ -10,7 +10,7 @@ This module creates an class called "Square" that defines a square.
 """
 
 
-class Square:    
+class Square:
     """Defines a Square.
 
     Defines a square and its values subject to certain conditions.
@@ -37,14 +37,14 @@ class Square:
         elif size < 0:
             raise ValueError("size must be >= 0")
         else:
-            self.size = size
+            self.__size = size
         if type(position) is not tuple or len(position) is not 2\
                 or type(position[0]) is not int\
                 or type(position[1]) is not int\
                 or position[0] < 0 or position[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
-            self.position = position
+            self.__position = position
 
     @property
     def size(self):
