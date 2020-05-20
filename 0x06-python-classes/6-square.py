@@ -21,7 +21,17 @@ class Square:
     """
 
     def __init__(self, size=0, position=(0, 0)):
-        """Inits Square."""
+        """Inits Square.
+
+        Keyword Arguments:
+            size {Int} -- size (default: {0})
+            position {Tuple} -- position (default: {(0, 0)})
+
+        Raises:
+            TypeError: size must be an integer
+            ValueError: size must be >= 0
+            TypeError: position must be a tuple of 2 positive integers
+        """
         if type(size) is not int:
             raise TypeError("size must be an integer")
         elif size < 0:
@@ -38,17 +48,33 @@ class Square:
 
     @property
     def size(self):
-        """Returns Square size"""
+        """Returns Square size.
+
+        Returns:
+            Int -- size.
+        """
         return self.__size
 
     @property
     def position(self):
-        """Returns Square position"""
+        """Returns Square position.
+
+        Returns:
+            Int -- Position.
+        """
         return self.__position
 
     @size.setter
     def size(self, value):
-        """Sets Square with a size subject to certain conditions."""
+        """Sets Square with a size subject to certain conditions.
+
+        Arguments:
+            value {Int} -- size.
+
+        Raises:
+            TypeError: size must be an integer.
+            ValueError: size must be >= 0.
+        """
         if type(value) is not int:
             raise TypeError("size must be an integer")
         elif value < 0:
@@ -58,7 +84,14 @@ class Square:
 
     @position.setter
     def position(self, value):
-        """Sets Square with a position subject to certain conditions."""
+        """Sets Square with a position subject to certain conditions.
+
+        Arguments:
+            value {Int} -- position.
+
+        Raises:
+            TypeError: position must be a tuple of 2 positive integers.
+        """
         if type(value) is not tuple or len(value) is not 2\
                 or type(value[0]) is not int or type(value[1]) is not int\
                 or value[0] < 0 or value[1] < 0:
@@ -67,11 +100,16 @@ class Square:
             self.__position = value
 
     def area(self):
-        """Returns the current square area."""
+        """Returns the area of the square.
+
+        Returns:
+            Int -- area of the square.
+        """
         return self.__size ** 2
 
     def my_print(self):
-        """that prints in stdout the square with the character #"""
+        """that prints in stdout the square with the character #.
+        """
         if self.__size == 0:
             print()
         else:
