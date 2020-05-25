@@ -156,4 +156,13 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        return Rectangle(size, size)
+        """Returns a new Rectangle instance
+            with width == height == size
+
+        Keyword Arguments:
+            size int -- size (default: {0})
+
+        Returns:
+            cls -- Rectangle object.
+        """
+        return cls(size, size)
