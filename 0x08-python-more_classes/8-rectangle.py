@@ -153,3 +153,5 @@ class Rectangle:
         else:
             if rect_1.area() >= rect_2.area():
                 return rect_1
+            else:
+                return rect_2
