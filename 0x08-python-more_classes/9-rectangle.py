@@ -165,4 +165,4 @@ class Rectangle:
         Returns:
             cls -- Rectangle object.
         """
-        return cls(size, size)
+        return Rectangle(size, size)
