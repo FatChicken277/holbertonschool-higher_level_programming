@@ -1,23 +1,36 @@
 IMPORT
->>> cls = __import__('1-my_list').MyList
+>>> MyList = __import__('1-my_list').MyList
+>>> Module = __import__('1-my_list').__doc__
+>>> Class = __import__('1-my_list').MyList.__doc__
+>>> Function = __import__('1-my_list').MyList.print_sorted.__doc__
 
 TESTS
->>> my_list = cls()
+>>> my_list = MyList()
 
 >>> my_list.append(1)
 >>> my_list.append(4)
 >>> my_list.append(2)
 >>> my_list.append(3)
 >>> my_list.append(5)
->>> cls.print_sorted(my_list)
+>>> MyList.print_sorted(my_list)
 [1, 2, 3, 4, 5]
 
->>> my_list = cls()
+>>> my_list = MyList()
 >>> my_list.append(-2)
 >>> my_list.append(-7)
->>> cls.print_sorted(my_list)
+>>> MyList.print_sorted(my_list)
 [-7, -2]
 
 >>> my_list = []
->>> cls.print_sorted(my_list)
+>>> MyList.print_sorted(my_list)
 []
+
+DOCSTRING
+>>> print(len(Module) > 0)
+True
+
+>>> print(len(Class) > 0)
+True
+
+>>> print(len(Function) > 0)
+True
