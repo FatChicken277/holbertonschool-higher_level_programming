@@ -1,0 +1,18 @@
+IMPORT
+>>> cls = __import__('1-my_list').MyList
+
+TESTS
+>>> list = cls()
+
+>>> list += [2, 3, 2, 2]
+>>> cls.print_sorted(list)
+[2, 2, 2, 3]
+
+>>> list.append(-2)
+>>> list.append(-7)
+>>> cls.print_sorted(list)
+[-7, -2, 2, 2, 2, 3]
+
+>>> list = []
+>>> cls.print_sorted(list)
+[]
