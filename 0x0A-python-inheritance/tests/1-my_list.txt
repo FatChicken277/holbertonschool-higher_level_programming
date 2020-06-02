@@ -2,17 +2,22 @@ IMPORT
 >>> cls = __import__('1-my_list').MyList
 
 TESTS
->>> list = cls()
+>>> my_list = cls()
 
->>> list += [2, 3, 2, 2]
->>> cls.print_sorted(list)
-[2, 2, 2, 3]
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> cls.print_sorted(my_list)
+[1, 2, 3, 4, 5]
 
->>> list.append(-2)
->>> list.append(-7)
->>> cls.print_sorted(list)
-[-7, -2, 2, 2, 2, 3]
+>>> my_list = cls()
+>>> my_list.append(-2)
+>>> my_list.append(-7)
+>>> cls.print_sorted(my_list)
+[-7, -2]
 
->>> list = []
->>> cls.print_sorted(list)
+>>> my_list = []
+>>> cls.print_sorted(my_list)
 []
