@@ -7,11 +7,14 @@ import sys
 
 def error():
     print("Usage: read_write_heap.py pid search_string replace_string",
-          file=sys.stderr)
+          file=sys.stdout)
     exit(1)
 
 
 args = sys.argv
+if len(args) != 4:
+    error()
+
 pid = args[1]
 string = args[2]
 new_string = args[3]
@@ -19,8 +22,6 @@ new_string = args[3]
 fmaps = "/proc/{}/maps".format(pid)
 fmem = "/proc/{}/mem".format(pid)
 
-if len(args) != 4:
-    error()
 
 with open(fmaps, 'r') as map_file:
     for line in map_file:
@@ -41,7 +42,7 @@ print("  [.] Dev:\t{}".format(heap[3]))
 print("  [.] Inode :\t{}".format(heap[4]))
 
 if "r" not in heap[1] or "w" not in heap[1]:
-    print("Permissions error", file=sys.stderr)
+    print("Permissions error", file=sys.stdout)
     exit(1)
 
 with open(fmem, 'rb+') as mem_file:
@@ -51,7 +52,7 @@ with open(fmem, 'rb+') as mem_file:
     try:
         i = heap.index(bytes(string, "ASCII"))
     except Exception:
-        print("Can't find '{}'".format(string), file=sys.stderr)
+        print("Can't find '{}'".format(string), file=sys.stdout)
         exit(1)
     print("[*] Found '{}' at {}".format(string, i))
 
