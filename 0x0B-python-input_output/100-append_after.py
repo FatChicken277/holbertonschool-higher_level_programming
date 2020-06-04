@@ -14,14 +14,11 @@ def append_after(filename="", search_string="", new_string=""):
         new_string {str} -- [description] (default: {""})
     """
     str = ""
-    flag = 0
-    with open(filename, "r+", encoding="utf-8") as file:
+    with open(filename, "r", encoding="utf-8") as file:
         for line in file:
             if search_string in line:
                 str += line[:] + new_string
             else:
                 str += line
-            flag = 1
-        if flag == 1:
-            file.truncate(0)
-            file.write(str)
+    with open(filename, "w", encoding="utf-8") as file:
+        file.write(str)
