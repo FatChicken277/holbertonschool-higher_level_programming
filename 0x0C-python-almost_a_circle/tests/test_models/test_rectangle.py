@@ -57,8 +57,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rec2.id, 2)
         self.assertEqual(rec3.id, 4)
 
-# ---------------------------------- Width --------------------------------- #
-
     def test_width_int(self):
         """Test width with negative integer.
         """
@@ -121,8 +119,6 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError) as error:
             Rectangle({"i'm", "a", "set"}, 1)
         self.assertEqual("width must be an integer", str(error.exception))
-
-# --------------------------------- Height --------------------------------- #
 
     def test_height_int(self):
         """Test height with negative integer.
@@ -187,8 +183,6 @@ class TestRectangle(unittest.TestCase):
             Rectangle(1, {"i'm", "a", "set"})
         self.assertEqual("height must be an integer", str(error.exception))
 
-# ------------------------------------ X ----------------------------------- #
-
     def test_x_int(self):
         """Test x with negative integer.
         """
@@ -251,8 +245,6 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError) as error:
             Rectangle(1, 1, {"i'm", "a", "set"})
         self.assertEqual("x must be an integer", str(error.exception))
-
-# ------------------------------------ Y ----------------------------------- #
 
     def test_y_int(self):
         """Test y with negative integer.
@@ -317,15 +309,11 @@ class TestRectangle(unittest.TestCase):
             Rectangle(1, 1, 1, {"i'm", "a", "set"})
         self.assertEqual("y must be an integer", str(error.exception))
 
-# ---------------------------------- Area ---------------------------------- #
-
     def test_area(self):
         """Test rectangle area.
         """
         rect4 = Rectangle(34623, 12312)
         self.assertEqual(rect4.area(), 426278376)
-
-# --------------------------------- Display -------------------------------- #
 
     def test_display(self):
         """Test rectangle display.
@@ -341,8 +329,6 @@ class TestRectangle(unittest.TestCase):
             expected_display = "#\n"
             self.assertEqual(buff.getvalue(), expected_display)
 
-# ----------------------------------- Str ---------------------------------- #
-
     def test_str(self):
         """Test rectangle str.
         """
@@ -350,8 +336,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(str(rect6), "[Rectangle] (53) 2/1 - 32/2")
         rect7 = Rectangle(1, 1)
         self.assertEqual(str(rect7), "[Rectangle] (1) 0/0 - 1/1")
-
-# -------------------------------- Display1 -------------------------------- #
 
     def test_display1(self):
         """Test rectangle display1.
@@ -367,8 +351,6 @@ class TestRectangle(unittest.TestCase):
             expected_display = "#\n"
             self.assertEqual(buff.getvalue(), expected_display)
 
-# --------------------------------- update --------------------------------- #
-
     def test_update_args(self):
         """Test rectangle update (args).
         """
@@ -379,8 +361,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect9.height, 23)
         self.assertEqual(rect9.x, 3)
         self.assertEqual(rect9.y, 4)
-
-# --------------------------------- update1 -------------------------------- #
 
     def test_update_kwargs(self):
         """Test rectangle update (kwargs).
@@ -403,8 +383,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect11.height, 2)
         self.assertEqual(rect11.x, 3)
         self.assertEqual(rect11.y, 4)
-
-# ------------------------------ to dictionary ----------------------------- #
 
     def test_to_dictionay(self):
         """Test Rectangle to_dictionary method.
