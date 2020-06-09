@@ -3,7 +3,10 @@
     all functionality of the Base model.
 """
 import unittest
+import pep8
 from models.base import Base
+from models.square import Square
+from models.rectangle import Rectangle
 
 
 class TestBase(unittest.TestCase):
@@ -13,6 +16,13 @@ class TestBase(unittest.TestCase):
         """sets nb_objects to 0.
         """
         Base._Base__nb_objects = 0
+
+    def test_style_base(self):
+        """test pep8
+        """
+        style = pep8.StyleGuide()
+        m = style.check_files(["models/base.py"])
+        self.assertEqual(m.total_errors, 0, "fix pep8")
 
     def test_docstring(self):
         """Test doc strings.
@@ -86,6 +96,63 @@ class TestBase(unittest.TestCase):
         """
         base = Base({1})
         self.assertEqual(base.id, {1})
+
+    def test_toJson(self):
+        """Tests transformation to a JSON
+        """
+        rec = Rectangle(10, 7, 2, 8)
+        dictionary = rec.to_dictionary()
+        json = Base.to_json_string([dictionary])
+        self.assertEqual(type(json) is str and
+                         "id" in json and
+                         "width" in json and
+                         "height" in json and
+                         "x" in json and
+                         "y" in json, True)
+        sqa = Square(10, 7, 2)
+        dictionary = sqa.to_dictionary()
+        json = Base.to_json_string([dictionary])
+        self.assertEqual(type(json) is str and
+                         "id" in json and
+                         "size" in json and
+                         "x" in json and
+                         "y" in json, True)
+
+    def test_toFile(self):
+        """Tests to test save
+        """
+        r = Rectangle(2, 4)
+        Rectangle.save_to_file([r])
+        a = 0
+        with open("Rectangle.json", "r"):
+            a = 1
+        self.assertEqual(a == 1, True)
+
+    def test_fromJson(self):
+        """Test to test from JSON
+        """
+        st = '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]'
+        dic = Base.from_json_string(st)
+        self.assertEqual(dic,
+                         [{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}])
+
+    def test_create(self):
+        """Tests to test create
+        """
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(str(r1) == str(r2), True)
+
+    def test_loadFrom(self):
+        """This tests loads
+        """
+        s = Square(7, 9, 1)
+        list_squares_input = [s]
+        Square.save_to_file(list_squares_input)
+        li = Square.load_from_file()
+        self.assertEqual(type(li) is list and
+                         li[0].__class__.__name__ is "Square", True)
 
 
 if __name__ == "__main__":
