@@ -50,8 +50,6 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(sqa3.id, 2)
         self.assertEqual(sqa4.id, 4)
 
-# ---------------------------------- Size ---------------------------------- #
-
     def test_size_int(self):
         """Test size with negative integer.
         """
@@ -114,8 +112,6 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError) as error:
             Square({"i'm", "a", "set"}, 1)
         self.assertEqual("width must be an integer", str(error.exception))
-
-# ------------------------------------ X ----------------------------------- #
 
     def test_x_int(self):
         """Test x with negative integer.
@@ -180,8 +176,6 @@ class TestSquare(unittest.TestCase):
             Square(1, {"i'm", "a", "set"})
         self.assertEqual("x must be an integer", str(error.exception))
 
-# ------------------------------------ Y ----------------------------------- #
-
     def test_y_int(self):
         """Test y with negative integer.
         """
@@ -245,8 +239,6 @@ class TestSquare(unittest.TestCase):
             Square(1, 1, {"i'm", "a", "set"})
         self.assertEqual("y must be an integer", str(error.exception))
 
-# --------------------------------- Display -------------------------------- #
-
     def test_display(self):
         """Test Square display.
         """
@@ -266,8 +258,6 @@ class TestSquare(unittest.TestCase):
             expected_display = "\n"*3 + " ###\n"*3
             self.assertEqual(buff.getvalue(), expected_display)
 
-# ----------------------------------- Str ---------------------------------- #
-
     def test_str(self):
         """Test Square str.
         """
@@ -277,8 +267,6 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(str(sqa8), "[Square] (1) 1/0 - 1")
         sqa9 = Square(3, 1, 3, 3)
         self.assertEqual(str(sqa9), "[Square] (3) 1/3 - 3")
-
-# --------------------------------- update1 -------------------------------- #
 
     def test_update_args(self):
         """Test Square update (args).
@@ -309,8 +297,6 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(sqa12.size, 20)
         self.assertEqual(sqa12.x, 2)
         self.assertEqual(sqa12.y, 3)
-
-# ------------------------------ to dictionary ----------------------------- #
 
     def test_to_dictionay(self):
         """Test Square to_dictionary method.
