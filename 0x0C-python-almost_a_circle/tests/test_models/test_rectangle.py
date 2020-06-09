@@ -2,6 +2,7 @@
 """This module constains a class that test rectangle class.
 """
 import io
+import pep8
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -16,6 +17,13 @@ class TestRectangle(unittest.TestCase):
         """Sets nb_objects to 0 for each test.
         """
         Base._Base__nb_objects = 0
+
+    def test_style_base(self):
+        """test pep8
+        """
+        style = pep8.StyleGuide()
+        m = style.check_files(["models/rectangle.py"])
+        self.assertEqual(m.total_errors, 0, "fix pep8")
 
     def test_docstring(self):
         """Test doc strings.
