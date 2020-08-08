@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """This module contains functions that lists all cities of that state,
     using the specific database.
 """
