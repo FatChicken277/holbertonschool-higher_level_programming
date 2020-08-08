@@ -43,10 +43,10 @@ def query(cur, match):
     """Performs a "SELECT" query that lists all states where name matches
         the argument "match".
     """
-    cur.execute("""SELECT * FROM states WHERE
-                name="{}" ORDER BY id ASC""".format(match))
+    cur.execute("""SELECT * FROM states ORDER BY id ASC""")
     for row in cur.fetchall():
-        print(row)
+        if row[1] == match:
+            print(row)
 
 
 if __name__ == "__main__":
