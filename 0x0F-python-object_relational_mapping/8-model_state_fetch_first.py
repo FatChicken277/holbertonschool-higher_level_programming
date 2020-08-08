@@ -28,7 +28,7 @@ def query(session):
         (if is None print Nothing)
     """
     query = session.query(State).order_by(State.id).first()
-    if query:
+    if query is not None:
         print("{}: {}".format(query.id, query.name))
     else:
         print("Nothing")
