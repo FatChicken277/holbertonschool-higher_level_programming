@@ -46,7 +46,8 @@ def query(cur, match):
     cur.execute("""SELECT * FROM states WHERE name="%s"
                 ORDER BY id ASC""", (match,))
     for row in cur.fetchall():
-        print(row)
+        if row[1] == match:
+            print(row)
 
 
 if __name__ == "__main__":
