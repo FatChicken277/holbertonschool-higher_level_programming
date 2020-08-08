@@ -43,7 +43,7 @@ def query(cur, match):
     """Performs a "SELECT" query that lists all states where name matches
         the argument "match". (safe from MySQL injection)
     """
-    cur.execute("""SELECT * FROM states WHERE name="%s"
+    cur.execute("""SELECT * FROM states WHERE name=%s
                 ORDER BY id ASC""", (match,))
     for row in cur.fetchall():
         if row[1] == match:
