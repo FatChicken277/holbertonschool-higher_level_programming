@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""[summary]
+"""This script list 10 commits (from the most recent to oldest) of a
+    repository.
 """
 import requests
 from sys import argv
