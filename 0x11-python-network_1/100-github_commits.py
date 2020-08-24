@@ -11,6 +11,6 @@ if __name__ == "__main__":
     x = 0
     for i in r.json():
         x += 1
-        if x == 9:
+        if x == 11:
             break
         print("{}: {}".format(i.get('sha'), i.get('author').get('login')))
