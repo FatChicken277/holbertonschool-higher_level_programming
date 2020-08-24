@@ -13,4 +13,5 @@ if __name__ == "__main__":
         x += 1
         if x == 11:
             break
-        print("{}: {}".format(i.get('sha'), i.get('author').get('login')))
+        print("{}: {}".format(
+            i.get('sha'), i.get('commit').get('author').get('name')))
