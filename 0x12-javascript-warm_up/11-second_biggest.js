@@ -7,7 +7,7 @@ if (!process.argv[2] || process.argv.length === 3) {
   process.argv.slice(2).forEach(val => {
     if (parseInt(val) > first) {
       second = first;
-      first = val;
+      first = parseInt(val);
     }
   });
   console.log(second);
