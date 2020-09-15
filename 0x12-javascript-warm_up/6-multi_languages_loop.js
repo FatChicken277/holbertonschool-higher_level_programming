@@ -1,3 +1,5 @@
 #!/usr/bin/node
 const array = ['C is fun', 'Python is cool', 'Javascript is amazing'];
-array.forEach(value => console.log(value));
+for (const value of array) {
+  console.log(value);
+}
