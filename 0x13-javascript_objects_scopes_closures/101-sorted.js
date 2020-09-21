@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const dictionary = require('./101-main').dict;
+const dictionary = require('./101-main.js').dict;
 const newDict = {};
 for (const key in dictionary) {
   if (newDict[dictionary[key]] === undefined) {
