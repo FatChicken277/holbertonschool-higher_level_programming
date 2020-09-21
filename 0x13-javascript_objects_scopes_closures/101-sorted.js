@@ -1,9 +1,10 @@
 #!/usr/bin/node
 const dictionary = require('./101-main').dict;
-let newDict = {};
+const newDict = {};
 for (const [key, value] of Object.entries(dictionary)) {
   if (newDict[value] !== undefined) {
     newDict[value].push(key);
+    newDict[value].sort();
   } else {
     newDict[value] = [key];
   }
