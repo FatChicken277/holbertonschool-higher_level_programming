@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const dictionary = require('./101-main').dict;
 const newDict = {};
-for (const key of Object.keys(dictionary)) {
+for (const key in dictionary) {
   if (newDict[dictionary[key]] === undefined) {
     newDict[dictionary[key]] = [];
   }
