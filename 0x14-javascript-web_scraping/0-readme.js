@@ -4,6 +4,6 @@ if (process.argv.length === 3) {
   try {
     console.log(fs.readFileSync(process.argv[2]).toString('utf8'));
   } catch (err) {
-    console.log(err);
+    console.log(JSON.stringify(err));
   }
 }
