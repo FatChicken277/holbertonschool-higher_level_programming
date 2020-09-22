@@ -1,0 +1,15 @@
+## 0x14. Javascript - Web scraping
+
+<details>
+<summary>In this exercise we worked with the functionalities of Java Script programming language like: </summary>
+<br>
+
+- Requests.
+- Json.
+
+
+</details>
+
+---
+
+[Back Button](https://github.com/FatChicken277/holbertonschool-higher_level_programming)
