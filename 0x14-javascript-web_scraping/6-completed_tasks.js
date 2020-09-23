@@ -6,10 +6,10 @@ if (process.argv.length === 3) {
       const users = JSON.parse(body);
       const usersDict = {};
       for (const user of users) {
-        if (usersDict[user.userId] === undefined) {
-          usersDict[user.userId] = 0;
-        }
         if (user.completed === true) {
+          if (usersDict[user.userId] === undefined) {
+            usersDict[user.userId] = 0;
+          }
           usersDict[user.userId] += 1;
         }
       }
