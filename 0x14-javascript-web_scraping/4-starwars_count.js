@@ -6,8 +6,10 @@ if (process.argv.length === 3) {
       const films = JSON.parse(body);
       let count = 0;
       for (const film of films.results) {
-        if (film.characters.includes('https://swapi-api.hbtn.io/api/people/18/')) {
-          count++;
+        for (const character of film.characters) {
+          if (parseInt(character.slice(character.length - 3, character.length - 1)) === 18) {
+            count++;
+          }
         }
       }
       console.log(count);
