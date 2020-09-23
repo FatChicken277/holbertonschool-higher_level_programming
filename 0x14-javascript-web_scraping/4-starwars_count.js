@@ -7,7 +7,9 @@ if (process.argv.length === 3) {
       let count = 0;
       for (const film of films.results) {
         for (const character of film.characters) {
-          if (parseInt(character.slice(character.length - 3, character.length - 1)) === 18) {
+          const arr = character.split('/');
+          console.log(arr);
+          if (parseInt(arr[arr.length - 2]) === 18) {
             count++;
           }
         }
